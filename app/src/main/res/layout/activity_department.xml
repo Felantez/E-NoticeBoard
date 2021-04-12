@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".department">
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg">
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="right"
+            android:visibility="visible"
+            android:outlineSpotShadowColor="@color/black"
+            android:padding="2dp"
+            android:src="@drawable/home"
+            android:layout_marginRight="25dp"/>
+
+        <ImageView
+            android:id="@+id/logOut"
+            android:layout_width="30dp"
+            android:visibility="visible"
+            android:outlineSpotShadowColor="@color/black"
+            android:layout_height="30dp"
+            android:src="@drawable/logout"
+            android:layout_gravity="right"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="18dp"/>
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:visibility="visible"
+            android:outlineSpotShadowColor="@color/black"
+            android:layout_height="30dp"
+            android:src="@drawable/back"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="18dp"/>
+    </com.google.android.material.navigation.NavigationView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dep. of Computer Science and I.T"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/aclonica"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a course to view the notices"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/aclonica"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/CCN"
+        app:cornerRadius="15dp"
+        android:outlineSpotShadowColor="@color/golden"
+        android:shadowColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Com. Computer Networks"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:backgroundTint="@color/l.blue"
+        android:padding="6dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/bungee"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/IT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Information Technology"
+        android:layout_marginTop="30dp"
+        app:cornerRadius="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:padding="6dp"
+        android:outlineSpotShadowColor="@color/green"
+        android:shadowColor="@color/black"
+        android:textStyle="bold"
+        android:backgroundTint="@color/teal_700"
+        android:fontFamily="@font/bungee"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/CT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Computer Technology"
+        android:layout_marginTop="30dp"
+        app:cornerRadius="15dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:padding="6dp"
+        android:outlineSpotShadowColor="@color/green"
+        android:shadowColor="@color/black"
+        android:textStyle="bold"
+        android:backgroundTint="@color/jade"
+        android:fontFamily="@font/bungee"/>
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bg"
+        android:elevation="10dp"
+        android:padding="10dp"
+        app:layout_constraintHorizontal_bias="0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg">
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:padding="10dp"
+                android:src="@drawable/image1"
+                app:layout_constraintBottom_toTopOf="@+id/nav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img3"
+
+                tools:layout_editor_absoluteX="-132dp" >
+
+                <TextView
+                    android:id="@+id/TextView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toRightOf="@+id/img1"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="15dp"
+                    android:text="Posted today"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img1" />
+
+
+                <ImageView
+                    android:id="@+id/favourite3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/iconbg"
+                    android:src="@drawable/favourite"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginEnd="160dp"/>
+
+                <ImageView
+                    android:id="@+id/share3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginEnd="100dp"
+                    android:src="@drawable/share" />
+
+                <ImageView
+                    android:id="@+id/more3"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/more"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginEnd="30dp"/>
+
+            </com.google.android.material.navigation.NavigationView>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

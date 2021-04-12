@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/drawer_layout"
+    tools:openDrawer="start"
+    tools:context=".CT"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:scrollbarStyle="outsideOverlay"
+    android:scrollbars="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/golden"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:titleTextColor="@color/white" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"
+            android:visibility="visible"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/iconbg"
+            android:src="@drawable/back"
+            android:layout_marginRight="25dp"/>
+        <ImageView
+            android:id="@+id/logOut"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/iconbg"
+            android:src="@drawable/logout"
+            android:layout_marginRight="25dp"/>
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/iconbg"
+            android:src="@drawable/home"
+            android:layout_marginRight="25dp"/>
+
+        <ImageView
+            android:id="@+id/refresh"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right|center_vertical"
+            android:visibility="visible"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/iconbg"
+            android:src="@drawable/refresh"
+            android:layout_marginRight="25dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCT"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.177" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
