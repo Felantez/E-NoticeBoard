@@ -64,6 +64,7 @@ public class itAdapter extends RecyclerView.Adapter<itAdapter.ViewHolder> {
             super(itemView);
             text=itemView.findViewById(R.id.TextView3);
             imageView=itemView.findViewById(R.id.img3);
+            imageView=itemView.findViewById(R.id.recyclerViewCCN);
         }
     }
 }
