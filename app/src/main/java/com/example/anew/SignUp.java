@@ -59,6 +59,7 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 Intent login= new Intent(SignUp.this,logIn.class);
                 startActivity(login);
+                finish();
             }
         });
 
@@ -128,6 +129,7 @@ public class SignUp extends AppCompatActivity {
                                               Toast.makeText(SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                               Intent intent = new Intent(SignUp.this, logIn.class);
                                               startActivity(intent);
+                                              finish();
                                           } else {
                                               Toast.makeText(SignUp.this, "Failed to register user, try again", Toast.LENGTH_SHORT).show();
                                           }

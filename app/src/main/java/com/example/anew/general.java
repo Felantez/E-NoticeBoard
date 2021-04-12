@@ -47,7 +47,7 @@ public class general extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private List<upload> mUploads;
-
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +57,7 @@ public class general extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mUploads= new ArrayList<>();
+        firebaseAuth=FirebaseAuth.getInstance();
         databaseReference= FirebaseDatabase.getInstance().getReference("uploads");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -84,6 +85,7 @@ public class general extends AppCompatActivity {
                 back.setBackgroundColor(Color.GRAY);
                 Intent intent= new Intent(general.this,dashBoard.class);
                 startActivity(intent);
+                finishAffinity();
             }
         });
         //refresh button to reload the content
@@ -100,8 +102,9 @@ public class general extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(general.this,logIn.class);
+                Intent intent= new Intent(general.this,dashBoard.class);
                 startActivity(intent);
+                finishAffinity();
             }
         });
         //logOut Button to log user out
@@ -109,10 +112,14 @@ public class general extends AppCompatActivity {
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
+                firebaseAuth.signOut();
                 Intent intent= new Intent(general.this,logIn.class);
-
-
+                intent.putExtra("finish",true);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK|
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
             }
         });
 

@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -44,9 +45,10 @@ public class UploadCenter extends AppCompatActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private MaterialButton choose, upload, uploadCCN,uploadCT,uploadIT;
     private TextInputEditText fileName;
-    private ImageView preview;
+    private ImageView preview,back, logout,home;
     private ProgressBar progressBar;
     private Uri mImageUri;
+    private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference,databaseReferenceCCN,databaseReferenceCT,databaseReferenceIT;
     private StorageReference storageReference, storageReferenceCCN,storageReferenceCT,storageReferenceIT;
     private StorageTask storageTask, storageTaskCCN, storageTaskCT,storageTaskIT;
@@ -88,6 +90,46 @@ public class UploadCenter extends AppCompatActivity {
         //IT reference
         storageReferenceIT= FirebaseStorage.getInstance().getReference("uploadsIT");
         databaseReferenceIT= FirebaseDatabase.getInstance().getReference("uploadsIT");
+        //authentication handling
+        firebaseAuth= FirebaseAuth.getInstance();
+        //press back to exit the screen
+        back= findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(UploadCenter.this,adm.class);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
+
+        //home button to close and go the logIn
+        home= findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(UploadCenter.this, logIn.class);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
+
+        //Log out will remove the user completely from the activities
+
+        logout=findViewById(R.id.logOut);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent intent= new Intent(UploadCenter.this, adm.class);
+                intent.putExtra("finish",true);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK|
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
 
         // select image from file manager/ local storage
         choose.setOnClickListener(new View.OnClickListener() {
