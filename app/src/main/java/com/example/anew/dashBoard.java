@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +29,14 @@ public class dashBoard extends AppCompatActivity {
         setContentView(R.layout.activity_dash_board);
 
         firebaseAuth=FirebaseAuth.getInstance();
+
+        //Implement spinner item
+        Spinner spinner=(Spinner)findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.timetables, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
 
         button1=(MaterialButton) findViewById(R.id.general);
         button1.setOnClickListener(new View.OnClickListener() {

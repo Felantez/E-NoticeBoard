@@ -78,13 +78,13 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="15dp"
-            android:hint="Username"
+            android:hint="Email"
             android:inputType="text"
             android:padding="15dp"
             android:textColorHint="@color/material_on_primary_disabled">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextUserName1"
+                android:id="@+id/adminEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"
@@ -104,7 +104,7 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPassWord1"
+                android:id="@+id/adminPassWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"

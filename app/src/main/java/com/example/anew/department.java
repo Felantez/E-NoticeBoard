@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.service.controls.actions.FloatAction;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class department extends AppCompatActivity {
     @Override
@@ -16,9 +18,10 @@ public class department extends AppCompatActivity {
         this.finish();
     }
 
-    ImageView back;
+    private ImageView back, home,logout;
 
-    MaterialButton Ccn, It, Ct;
+    private MaterialButton Ccn, It, Ct;
+    private FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,30 @@ public class department extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent= new Intent(department.this, dashBoard.class);
                 startActivity(intent);
-                return;
+                finish();
+            }
+        });
+        home= findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(department.this, dashBoard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        logout= findViewById(R.id.logOut);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+                Intent intent= new Intent(department.this,logIn.class);
+                intent.putExtra("finish",true);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK|
+                        Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
             }
         });
     }
