@@ -31,11 +31,11 @@ public class dashBoard extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
 
         //Implement spinner item
-        Spinner spinner=(Spinner)findViewById(R.id.spinner);
+       /* Spinner spinner=(Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.timetables, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
 
 
         button1=(MaterialButton) findViewById(R.id.general);

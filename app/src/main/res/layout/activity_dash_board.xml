@@ -67,27 +67,7 @@
         android:textStyle="bold"
         android:backgroundTint="@color/golden"
         android:fontFamily="@font/bungee"/>
-    <view
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select Timetable from drop down"
-        android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:textSize="15dp"
-        android:fontFamily="sans-serif"/>
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="50dp"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/timetable"
         android:layout_width="match_parent"
