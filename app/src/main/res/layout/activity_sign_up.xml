@@ -112,6 +112,12 @@
                 android:maxLength="15"
                 android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
+        <ProgressBar
+            android:id="@+id/PCircular"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-100dp" />
         <com.google.android.material.textfield.TextInputLayout
 
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/golden"
+    tools:context=".profile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/bg"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image"
+                android:fontFamily="@font/bungee"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fullname"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/image"
+                android:includeFontPadding="false"
+                android:text=""
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-70dp"
+            android:padding="20dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                app:cardElevation="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/logo" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textStyle="bold"
+                        android:text=""
+                        android:textAllCaps="false"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/contact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/email"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:text=""
+                        android:textSize="15sp" />
+
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:padding="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="35sp"
+                android:layout_marginLeft="35sp"
+                android:hint="Full name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fullName2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/user"
+                    android:drawablePadding="10dp"
+                    android:hint="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="35sp"
+                android:layout_marginLeft="35sp"
+                android:hint="Username">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/username2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/contact"
+                    android:drawablePadding="10dp"
+                    android:hint="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="35sp"
+                android:layout_marginLeft="35sp"
+                android:hint="Email ">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/email"
+                    android:drawablePadding="10dp"
+                    android:hint="" />
+            </com.google.android.material.textfield.TextInputLayout>
+-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="35sp"
+                android:layout_marginLeft="35sp"
+                android:hint="Contact">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/contact2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/contact"
+                    android:drawablePadding="10dp"
+                    android:hint="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="40sp"
+                android:layout_marginLeft="40sp"
+                android:backgroundTint="@color/green"
+                android:padding="5dp"
+                android:text="Update"
+                android:textColor="#000" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

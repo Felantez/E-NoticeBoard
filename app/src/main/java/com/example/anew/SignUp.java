@@ -12,6 +12,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -35,7 +36,7 @@ public class SignUp extends AppCompatActivity {
 
     Button login, signUpToF;
     TextInputEditText eName, eUsername,eEmail,ePhoneNumber,ePassword;
-
+    ProgressBar progressBar;
     private FirebaseAuth mAuth;
     DatabaseReference databaseReference;
 
@@ -51,6 +52,8 @@ public class SignUp extends AppCompatActivity {
         ePhoneNumber=findViewById(R.id.phone);
         ePassword=findViewById(R.id.passWord);
         login=findViewById(R.id.toLogIn);
+        progressBar=findViewById(R.id.PCircular);
+        progressBar.setVisibility(View.INVISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -69,6 +72,7 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
 
                    toDatabase();
+
             }
         });
 
@@ -113,24 +117,25 @@ public class SignUp extends AppCompatActivity {
               }
 
               else{
-                  
+                  progressBar.setVisibility(View.VISIBLE);
                   mAuth.createUserWithEmailAndPassword(email,password)
                           .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                               @Override
                               public void onComplete(@NonNull Task<AuthResult> task) {
-                                  signUpData data = new signUpData(name, username, email, phoneNumber, password);
+                                  signUpData data = new signUpData(email,name, password, phoneNumber,username);
                                   FirebaseDatabase.getInstance().getReference("Users")
                                           .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                           .setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                                       @Override
                                       public void onComplete(@NonNull Task<Void> task) {
                                           if (task.isSuccessful()) {
-
+                                              progressBar.setVisibility(View.INVISIBLE);
                                               Toast.makeText(SignUp.this, "Registered successfully", Toast.LENGTH_SHORT).show();
                                               Intent intent = new Intent(SignUp.this, logIn.class);
                                               startActivity(intent);
                                               finish();
                                           } else {
+                                              progressBar.setVisibility(View.INVISIBLE);
                                               Toast.makeText(SignUp.this, "Failed to register user, try again", Toast.LENGTH_SHORT).show();
                                           }
                                       }

@@ -20,7 +20,7 @@ public class dashBoard extends AppCompatActivity {
         this.finish();
     }
 
-    private ImageView back, home, logOut;
+    private ImageView back, profile, logOut;
     private MaterialButton button1, button2;
     private FirebaseAuth firebaseAuth;
     @Override
@@ -78,6 +78,14 @@ public class dashBoard extends AppCompatActivity {
                         Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 finishAffinity();
+            }
+        });
+        profile=findViewById(R.id.toProfile);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(dashBoard.this, profile.class);
+                startActivity(intent);
             }
         });
     }

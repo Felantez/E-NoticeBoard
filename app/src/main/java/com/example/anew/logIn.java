@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -12,6 +14,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,12 +43,18 @@ public class logIn extends AppCompatActivity {
     ImageView imageView;
     TextView label, slogan;
     MaterialButton btnToDashBord,fPassword;
-
+    ProgressBar progressBar;
     Button next, admin;
     TextInputEditText editEmail, editPassword;
 
     DatabaseReference databaseReference;
     private FirebaseAuth mAuth;
+
+    SharedPreferences sharedPreferences;
+    private static final String saveFileName ="login";
+    public static final String saveEmail ="Email";
+    public static final String savePassword ="PassWord";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +65,16 @@ public class logIn extends AppCompatActivity {
         slogan=findViewById(R.id.slogan);
         imageView=findViewById(R.id.imageView);
         admin=findViewById(R.id.admin);
+        progressBar=findViewById(R.id.circular);
+        progressBar.setVisibility(View.INVISIBLE);
+
+
+        sharedPreferences= getSharedPreferences(saveFileName, Context.MODE_PRIVATE);
+        if (sharedPreferences.contains(saveEmail)){
+            Intent intent= new Intent(this,dashBoard.class);
+            startActivity(intent);
+        }
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -99,12 +118,25 @@ public class logIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toDash();
+
             }
+
         });
     }
     public void toDash(){
        String Email=editEmail.getText().toString().trim();
        String PassWord=editPassword.getText().toString().trim();
+
+       if (Email.equals(saveEmail) && PassWord.equals(savePassword)){
+           SharedPreferences.Editor editor= sharedPreferences.edit();
+           editor.putString(saveEmail,Email);
+           editor.putString(savePassword,PassWord);
+           editor.commit();
+           Intent intent= new Intent(this,dashBoard.class);
+           startActivity(intent);
+
+       }
+
 
        if(Email.isEmpty()){
            editEmail.setError("Enter userName");
@@ -128,20 +160,22 @@ public class logIn extends AppCompatActivity {
             editPassword.requestFocus();
             return;
         }
-
+        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(Email,PassWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
 
+                if (task.isSuccessful()){
+                    progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(logIn.this, "Welcome to E-notice", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(logIn.this,dashBoard.class);
                     startActivity(intent);
                     
                     editEmail.setText("");
                     editPassword.setText("");
-
                 }else {
+                    progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(logIn.this, "Failed to Log In, Try again", Toast.LENGTH_SHORT).show();
                 }
             }
